@@ -15,6 +15,7 @@ import android.view.*;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+
 import com.example.vicky.todolist.DTO.ToDoItem;
 
 import java.util.ArrayList;
@@ -39,10 +40,14 @@ public class ItemActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item);
+
+        // 画面要素
         item_toolbar = findViewById(R.id.item_toolbar);
         rv_item = findViewById(R.id.rv_item);
         fab_item = findViewById(R.id.fab_item);
+
         setSupportActionBar(item_toolbar);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle(getIntent().getStringExtra(INTENT_TODO_NAME));
@@ -81,6 +86,10 @@ public class ItemActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
+
+        // ドラッグ&ドロップ
+        // https://akira-watson.com/android/itemtouchhelper.html
+
         touchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, 0) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder p1, @NonNull RecyclerView.ViewHolder p2) {
@@ -99,6 +108,7 @@ public class ItemActivity extends AppCompatActivity {
 
         touchHelper.attachToRecyclerView(rv_item);
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -236,5 +246,6 @@ public class ItemActivity extends AppCompatActivity {
                 move = v.findViewById(R.id.iv_move);
             }
         }
+
     }
 }

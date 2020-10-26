@@ -31,10 +31,12 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         String createToDoTable = "CREATE TABLE " + TABLE_TODO + " (" +
                 COL_ID + " integer PRIMARY KEY AUTOINCREMENT," +
                 COL_CREATED_AT + " datetime DEFAULT CURRENT_TIMESTAMP," +
                 COL_NAME + " varchar)";
+
         String createToDoItemTable =
                 "CREATE TABLE " + TABLE_TODO_ITEM + " (" +
                         COL_ID + " integer PRIMARY KEY AUTOINCREMENT," +

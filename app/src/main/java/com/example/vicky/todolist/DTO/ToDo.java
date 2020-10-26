@@ -24,7 +24,7 @@ public class ToDo {
     public final void setName( String name) {
         this.name = name;
     }
-    
+
     public final List getItems() {
         return this.items;
     }

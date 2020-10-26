@@ -134,7 +134,7 @@ public class DashboardActivity extends AppCompatActivity {
         }
 
 
-        // ここで
+        // ここでadapterが呼び出されたら処理される
         @Override
         public void onBindViewHolder(@NonNull final ViewHolder holder, final int i) {
             holder.toDoName.setText(list.get(i).getName());
